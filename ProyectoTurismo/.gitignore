@@ -1,22 +1,40 @@
-# Archivos compilados de Python
-*.pyc
-__pycache__/
 
-# Entornos virtuales
-venv/
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de entorno virtual
 env/
+venv/
+*.env
 
 # Archivos de configuración locales
-*.sqlite3
 *.log
+*.pot
+*.py[cod]
+*$py.class
 
-# Archivos de VS Code
+# Base de datos SQLite (solo en desarrollo)
+db.sqlite3
+
+# Migraciones (solo si querés ignorarlas en desarrollo)
+*/migrations/*
+!*/migrations/__init__.py
+
+# Archivos de compilación
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Archivos de IDE
 .vscode/
+.idea/
+*.swp
 
 # Archivos de sistema
 .DS_Store
 Thumbs.db
-"__pycache__/" 
-"*.pyc" 
-"__pycache__/" 
-"*.pyc" 
