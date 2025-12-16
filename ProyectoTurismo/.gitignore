@@ -1,0 +1,22 @@
+# Archivos compilados de Python
+*.pyc
+__pycache__/
+
+# Entornos virtuales
+venv/
+env/
+
+# Archivos de configuración locales
+*.sqlite3
+*.log
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+"__pycache__/" 
+"*.pyc" 
+"__pycache__/" 
+"*.pyc" 
