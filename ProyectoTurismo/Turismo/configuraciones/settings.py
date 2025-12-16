@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'usuario.Usuario'
 
 # Application definition
 
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'apps.posts',
+    'apps.contacto',
+    'apps.usuario',
 ]
 
 MIDDLEWARE = [
@@ -119,9 +122,9 @@ USE_TZ = True
 
 
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIR= os.path.join(os.path.dirname(BASE_DIR), 'static')
 
 
-MEDIA_URL='media/'
+MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),'media')
