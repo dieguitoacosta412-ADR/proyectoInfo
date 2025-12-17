@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+<section class="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-12">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 text-center">
+
+        <!-- Encabezado -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+            Perfil de {{ request.user.username }}
+        </h2>
+
+        <!-- Datos del usuario -->
+        <div class="space-y-4 text-gray-700">
+            <p><span class="font-semibold">Email:</span> {{ request.user.email }}</p>
+            <p><span class="font-semibold">Nombre completo:</span> {{ request.user.first_name }} {{ request.user.last_name }}</p>
+            <p><span class="font-semibold">Miembro desde:</span> {{ request.user.date_joined|date:"d M Y" }}</p>
+        </div>
+
+        <!-- Acciones -->
+        <div class="mt-8 flex flex-col space-y-3">
+            <a href="{% url 'usuario:editar_perfil' %}" 
+               class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition">
+                Editar perfil
+            </a>
+            <a href="{% url 'usuario:cambiar_password' %}" 
+               class="w-full bg-gray-200 text-gray-800 py-2 rounded-lg hover:bg-gray-300 transition">
+                Cambiar contraseña
+            </a>
+            <a href="{% url 'usuario:logout' %}" 
+               class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition">
+                Cerrar sesión
+            </a>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

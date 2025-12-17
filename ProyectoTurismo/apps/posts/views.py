@@ -23,12 +23,12 @@ class EventoViews(ListView):
     template_name = "posts/eventos.html"
     context_object_name = "eventos"
     pk_url_kwarg = "id"
-    queryset = Post.objects.all()
+    queryset = Evento.objects.all()
 
 class EventoDetailViews(DetailView):
     model = Evento
     template_name = "posts/post_individual.html"
     context_object_name = "evento"
     pk_url_kwarg = "id"
-    queryset = Post.objects.all()
+    queryset = Evento.objects.all()
 
