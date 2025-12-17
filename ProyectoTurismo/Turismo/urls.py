@@ -1,6 +1,4 @@
-"""
-URL configuration for Turismo project.
-
+""" URL configuration for Turismo project.
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
 Examples:
@@ -30,3 +28,4 @@ urlpatterns = [
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns +=staticfiles_urlpatterns()
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
