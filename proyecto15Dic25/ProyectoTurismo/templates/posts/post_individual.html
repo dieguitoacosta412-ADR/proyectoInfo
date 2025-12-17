@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+
+<section class="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-12">
+    <div class="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
+
+        <!-- Título -->
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">
+            {{ posts.titulo }}
+        </h1>
+
+        <!-- Subtítulo -->
+        <h2 class="text-xl text-gray-600 mb-4">
+            {{ posts.subtitulo }}
+        </h2>
+
+        <!-- Categoría -->
+        <p class="text-sm text-teal-600 font-semibold mb-6">
+            Categoría: {{ posts.categoria }}
+        </p>
+
+        <!-- Texto principal -->
+        <article class="text-gray-700 leading-relaxed">
+            {{ posts.texto }}
+        </article>
+
+        <!-- Botón volver -->
+        <div class="mt-8 text-center">
+            <a href="{% url 'apps.posts:post' %}" 
+               class="inline-block bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
+                ← Volver a los posts
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
