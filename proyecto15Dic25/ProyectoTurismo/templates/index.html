@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block contenido %}
 <!-- Hero Section -->
@@ -22,7 +23,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Tarjeta Bienal -->
         <article class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-            <img src="{{ MEDIA_URL }}evento1.jpg" alt="Evento" class="w-full h-48 object-cover">
+            <img src="{% static 'imagenes/evento1.JPG' %}" alt="Bienal de Esculturas" class="w-full h-48 object-cover">
             <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Bienal Int. de Esculturas</h3>
                 <p class="text-gray-600 mb-4">Evento cultural de renombre mundial en la ciudad de Resistencia.</p>
@@ -31,7 +32,7 @@
         </article>
         <!-- Tarjeta Carnavales -->
         <article class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-            <img src="{{ MEDIA_URL }}evento1.jpg" alt="Evento" class="w-full h-48 object-cover">
+            <img src="{% static 'imagenes/evento2.jpg' %}" alt="Carnavales del Chaco" class="w-full h-48 object-cover">
             <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Carnavales del Chaco</h3>
                 <p class="text-gray-600 mb-4">Fiesta, color y baile regional en varias localidades de la provincia.</p>
@@ -40,7 +41,7 @@
         </article>
         <!-- Tarjeta Resistencia -->
         <article class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-            <img src="{{ MEDIA_URL }}evento1.jpg" alt="Evento" class="w-full h-48 object-cover">
+            <img src="{% static 'imagenes/evento4.jpg' %}" alt="Resistencia ciudad" class="w-full h-48 object-cover">
             <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Resistencia, la ciudad</h3>
                 <p class="text-gray-600 mb-4">Conocida como la "Ciudad de las Esculturas", un museo a cielo abierto.</p>
@@ -55,7 +56,7 @@
     <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Naturaleza Pura</h2>
         <div class="bg-white rounded-xl overflow-hidden shadow-md flex flex-col md:flex-row">
-            <img src="{{ MEDIA_URL }}evento1.jpg" alt="Evento" class="w-full h-48 object-cover">
+            <img src="{% static 'imagenes/Post1.jpg' %}" alt="Parque El Impenetrable" class="w-full md:w-1/2 h-64 object-cover">
             <div class="p-8 md:w-1/2">
                 <h3 class="text-2xl font-bold mb-4">Parque Nacional El Impenetrable</h3>
                 <p class="text-gray-600 mb-4">El parque nacional más grande del norte argentino. Un área natural virgen ideal para avistaje de fauna y ecoturismo.</p>
