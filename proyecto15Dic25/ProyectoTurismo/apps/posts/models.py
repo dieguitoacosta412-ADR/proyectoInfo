@@ -1,35 +1,38 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 
-
-# Categorias
 class Categoria(models.Model):
     nombre=models.CharField(max_length=30, null=False)
 
     def __str__(self):
         return self.nombre
-    
-class Post(models.Model):
-    titulo=models.CharField(max_length=50, null=False)
-    subtitulo=models.CharField(max_length=100, null=True, blank=True)
-    fecha=models.DateTimeField(auto_now_add=True)
-    texto=models.TextField(null=False)
-    activo=models.BooleanField(default=True)
-    categoria=models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, default='sin categoria')
-    imagen=models.ImageField(null=True, blank=True, upload_to='media', default='static/post_defauld.png')
-    publicado=models.DateTimeField(default=timezone.now)
 
-    class Meta:
-        ordering=('-publicado',)
+
+class Post(models.Model):
+    titulo = models.CharField(max_length=50, null=False)
+    subtitulo = models.CharField(max_length=100, null=True, blank=True)
+    fecha = models.DateTimeField(auto_now_add=True)
+    texto = models.TextField(null=False)
+    activo = models.BooleanField(default=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, default='sin categoria')
+    imagen = models.ImageField(null=True, blank=True, upload_to='media', default='static/post_defauld.png')
+    publicado = models.DateTimeField(default=timezone.now)
+
+
+class Meta:
+    ordering = ('-publicado',)
+
 
     def __str__(self):
         return self.titulo
     
-    def delete(self, using = None, keep_parents =False):
+    
+    def delete(self, using=None, keep_parents=False):
         self.imagen.delete(self.imagen.name)
         super().delete()
-        
+
 
 class Destino(models.Model):
     nombre = models.CharField(max_length=100)
@@ -43,8 +46,7 @@ class Destino(models.Model):
             ("Gastronomía", "Gastronomía"),
         ]
     )
-
-
+    
     def _str_(self):
         return self.nombre
 
@@ -57,11 +59,13 @@ class Evento(models.Model):
     descripcion = models.TextField()
     imagen = models.ImageField(upload_to="eventos/", blank=True, null=True)
 
-    class Meta:
-        ordering = ('-fecha',)
+class Meta:
+    ordering = ('-fecha',)
 
-    def _str_(self):
-        return f"{self.titulo} - {self.fecha}-{self.hora}"
+
+
+def __str__(self):
+        return f"{self.titulo} - {self.fecha} - {self.hora}"
 
 
 class Recomendacion(models.Model):
@@ -82,4 +86,33 @@ class Imagen(models.Model):
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE, related_name="imagenes", blank=True, null=True)
 
     def _str_(self):
+        return self.titulo
+
+
+class CrearPost(models.Model):
+    titulo = models.CharField(max_length=200)
+    subtitulo = models.CharField(max_length=250)
+    texto = models.TextField()
+    activo = models.BooleanField(default=True)
+
+    publicado = models.DateField(auto_now_add=True, null=True, blank=True)
+
+    imagen = models.ImageField(
+        upload_to="posts/",
+        blank=True,
+        null=True
+    )
+
+    categoria = models.CharField(
+        max_length=100,
+        blank=True
+    )
+
+    autor = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="posts"
+    )
+
+    def __str__(self):
         return self.titulo

@@ -12,6 +12,7 @@ from .forms import RegistroUsuarioForm
 
 class LoginUsuarioView(LoginView):
     template_name = "usuario/login.html"
+    success_url = reverse_lazy("post:index") 
 
 
 class LogoutUsuarioView(LogoutView):

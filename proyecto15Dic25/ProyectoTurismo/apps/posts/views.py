@@ -7,17 +7,18 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from .models import CrearPost
 
 #vista basada en clases
 class PostListViews(ListView):
     model = Post
-    template_name = "posts/posts.html"
-    context_object_name = "posts"
+    template_name = "posts/post.html"
+    context_object_name = "post"
 
 class PostDetailViews(DetailView):
     model = Post
     template_name = "posts/post_individual.html"
-    context_object_name = "posts"
+    context_object_name = "post"
     pk_url_kwarg = "id"
     queryset = Post.objects.all()
 
@@ -36,10 +37,10 @@ class EventoDetailViews(DetailView):
     queryset = Post.objects.all()
     
 class CrearPostView(LoginRequiredMixin, CreateView):
-    model = Post
+    model = CrearPost
     template_name = "posts/crear_post.html"
-    fields = ["titulo", "subtitulo", "fecha", "texto", "activo", "categoria", "imagen", "publicado"]
-    success_url = reverse_lazy("posts")
+    fields = ["titulo", "subtitulo", "texto", "activo", "categoria", "imagen"]
+    success_url = reverse_lazy("post")
 
     def form_valid(self, form):
         form.instance.autor = self.request.user

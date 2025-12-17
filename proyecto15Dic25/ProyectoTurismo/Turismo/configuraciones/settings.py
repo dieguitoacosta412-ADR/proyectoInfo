@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.contacto.apps.ContactoConfig',
 
     'apps.posts',
-    'apps.contacto',
     'apps.usuario',
 ]
 
@@ -57,8 +57,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'Turismo.urls'
 
 LOGIN_URL = "usuario:login"
-LOGIN_REDIRECT_URL = "inicio"
-LOGOUT_REDIRECT_URL = "inicio"
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"
+
 
 TEMPLATES = [
     {
