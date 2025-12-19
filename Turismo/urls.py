@@ -28,7 +28,7 @@ urlpatterns = [
     path('posts/', include('apps.posts.urls', namespace="posts")),
     path('contacto/', include('apps.contacto.urls')),
     path('usuarios/', include('apps.usuario.urls')),        
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(
